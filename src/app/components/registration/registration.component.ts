@@ -22,16 +22,19 @@ export class RegistrationComponent implements OnInit {
 
   createForm() {
     this._registration = this._form.group({
-      email: new FormControl,
-      password: new FormControl,
-      confirmPassword: new FormControl
+      Email: new FormControl,
+      Password: new FormControl,
+      ConfirmPassword: new FormControl
     });
     
   }
 
   onSubmit() {
     console.log(this._registration.value);
-    this._authService.register(this._registration.value);
+    this._authService.register(this._registration.value)
+      .subscribe((stuff)=>{
+        console.log("hey")
+      })
   }  
 
 }
