@@ -20,11 +20,19 @@ import { AuthService } from './services/auth.service';
 import { LoginComponent } from './components/login/login.component';
 import { CardService } from './services/card.service';
 import { CardIndexComponent } from './components/card/card-index/card-index.component';
+import { CardCreateComponent } from './components/card/card-create/card-create.component';
 
 const routes = [
   { path: 'register', component: RegistrationComponent },
   {path: 'login', component: LoginComponent},
-  { path: 'card', component: CardIndexComponent },
+
+
+  { path: 'card', children:[
+        {path:'', component: CardIndexComponent },
+        {path:'create', component:CardCreateComponent}
+  ]
+  },
+
   { path: '**', component: RegistrationComponent }
 ]
 
@@ -35,7 +43,8 @@ const routes = [
     HeaderComponent,
     RegistrationComponent,
     LoginComponent,
-    CardIndexComponent
+    CardIndexComponent,
+    CardCreateComponent
   ],
   imports: [
     BrowserModule,
