@@ -22,15 +22,17 @@ import { CardService } from './services/card.service';
 import { CardIndexComponent } from './components/card/card-index/card-index.component';
 import { CardCreateComponent } from './components/card/card-create/card-create.component';
 import { AuthGuard } from './guards/auth.guard';
+import { LogoutComponent } from './components/logout/logout.component';
 
 const routes = [
   { path: 'register', component: RegistrationComponent },
-  {path: 'login', component: LoginComponent},
+  { path: 'login', component: LoginComponent },
+  { path: 'logout', component: LogoutComponent },
 
 
   { path: 'card', canActivate: [AuthGuard], children: [
-        {path:'', component: CardIndexComponent },
-        {path:'create', component:CardCreateComponent}
+        { path:'', component: CardIndexComponent },
+        { path:'create', component:CardCreateComponent }
   ]
   },
 
@@ -45,7 +47,8 @@ const routes = [
     RegistrationComponent,
     LoginComponent,
     CardIndexComponent,
-    CardCreateComponent
+    CardCreateComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
