@@ -31,10 +31,10 @@ export class RegistrationComponent implements OnInit {
 
   onSubmit() {
     console.log(this._registration.value);
-    this._authService.register(this._registration.value)
-      .subscribe((stuff)=>{
-        console.log("hey")
-      })
+    this._authService
+      .register(this._registration.value)
+      .subscribe( ()=> this._authService.login(this._registration.value));     
+      }
   }  
 
-}
+

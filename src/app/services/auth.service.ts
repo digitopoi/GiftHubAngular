@@ -14,9 +14,14 @@ export class AuthService {
   register(regUserData: RegisterUser){
     return this._http.post(`${Api_Url}/api/Account/Register`, regUserData);
   }
+  
 
   login(loginInfo){
-    const str = `grant_type=password&username=${encodeURI(loginInfo.email)}&password=${encodeURI(loginInfo.password)}`
-  }
+    const str = `grant_type=password&username=${encodeURI(loginInfo.email)}&password=${encodeURI(loginInfo.password)}`;
+    return this._http.post(`${Api_Url}/Token`, str).subscribe( (token: Token) => {
+      localStorage.setItem('id_token', token.access_token);
+  });
 
+  }
 }
+
