@@ -7,7 +7,8 @@ import { HttpClientModule } from '@angular/common/http'
 import { MatToolbarModule, 
          MatButtonModule,
          MatFormFieldModule,
-         MatInputModule
+         MatInputModule,
+         MatTableModule
        } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -17,10 +18,13 @@ import { HeaderComponent } from './components/header/header.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { AuthService } from './services/auth.service';
 import { LoginComponent } from './components/login/login.component';
+import { CardService } from './services/card.service';
+import { CardIndexComponent } from './components/card/card-index/card-index.component';
 
 const routes = [
   { path: 'register', component: RegistrationComponent },
   {path: 'login', component: LoginComponent},
+  { path: 'card', component: CardIndexComponent },
   { path: '**', component: RegistrationComponent }
 ]
 
@@ -30,7 +34,8 @@ const routes = [
     AppComponent,
     HeaderComponent,
     RegistrationComponent,
-    LoginComponent
+    LoginComponent,
+    CardIndexComponent
   ],
   imports: [
     BrowserModule,
@@ -42,10 +47,12 @@ const routes = [
     MatToolbarModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatTableModule
   ],
   providers: [
-    AuthService
+    AuthService,
+    CardService
   ],
   bootstrap: [AppComponent]
 })

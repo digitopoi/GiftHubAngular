@@ -31,8 +31,7 @@ export class AuthService {
       this.userInfo = token;
       localStorage.setItem('id_token', token.access_token);
       this.isLoggedIn.next(true);
-      this._router.navigate(['/']);
-      console.log(token.access_token);
+      this._router.navigate(['/card']);
   });
 
   }
