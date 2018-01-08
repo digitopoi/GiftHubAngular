@@ -21,13 +21,14 @@ import { LoginComponent } from './components/login/login.component';
 import { CardService } from './services/card.service';
 import { CardIndexComponent } from './components/card/card-index/card-index.component';
 import { CardCreateComponent } from './components/card/card-create/card-create.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes = [
   { path: 'register', component: RegistrationComponent },
   {path: 'login', component: LoginComponent},
 
 
-  { path: 'card', children:[
+  { path: 'card', canActivate: [AuthGuard], children: [
         {path:'', component: CardIndexComponent },
         {path:'create', component:CardCreateComponent}
   ]
@@ -61,7 +62,8 @@ const routes = [
   ],
   providers: [
     AuthService,
-    CardService
+    CardService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
