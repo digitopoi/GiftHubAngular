@@ -23,6 +23,9 @@ import { CardIndexComponent } from './components/card/card-index/card-index.comp
 import { CardCreateComponent } from './components/card/card-create/card-create.component';
 import { AuthGuard } from './guards/auth.guard';
 import { LogoutComponent } from './components/logout/logout.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { PieChartComponent } from './components/admin/pie-chart/pie-chart.component';
+import { AddCompanyFormComponent } from './components/admin/add-company-form/add-company-form.component';
 
 const routes = [
   { path: 'register', component: RegistrationComponent },
@@ -48,7 +51,10 @@ const routes = [
     LoginComponent,
     CardIndexComponent,
     CardCreateComponent,
-    LogoutComponent
+    LogoutComponent,
+    AdminComponent,
+    PieChartComponent,
+    AddCompanyFormComponent
   ],
   imports: [
     BrowserModule,
