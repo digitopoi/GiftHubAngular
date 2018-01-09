@@ -25,8 +25,7 @@ export class AddCompanyFormComponent {
 
   onSubmit() {
     this._companyService.createCompany(this.companyForm.value).subscribe(data => {
-      // this._router.navigate(['/card']);
-      console.log(data);
+      console.log(this.companyForm.value);
     });
   }
 
