@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    width: auto;
+}
+
+.card {
+    width: 25%;
+}
+
+.list {
+    width: 75%;   
+    
+}
