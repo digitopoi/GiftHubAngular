@@ -1,15 +1,33 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { Company } from '../../../models/company';
+import { CompanyService } from '../../../services/company.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-company-form',
   templateUrl: './add-company-form.component.html',
   styleUrls: ['./add-company-form.component.css']
 })
-export class AddCompanyFormComponent implements OnInit {
+export class AddCompanyFormComponent {
 
-  constructor() { }
+  companyForm: FormGroup;
 
-  ngOnInit() {
+  constructor(private _form: FormBuilder, private _companyService: CompanyService, private _router: Router) {
+    this.createForm();
+  }
+
+  createForm() {
+    this.companyForm = this._form.group({
+      CompanyName: new FormControl
+    });
+  }
+
+  onSubmit() {
+    this._companyService.createCompany(this.companyForm.value).subscribe(data => {
+      // this._router.navigate(['/card']);
+      console.log(data);
+    });
   }
 
 }

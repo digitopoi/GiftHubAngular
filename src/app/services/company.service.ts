@@ -13,6 +13,10 @@ export class CompanyService {
     return this._http.get(`${Api_Url}/Company`, { headers: this.getHeaders()});
   }
 
+  createCompany(card: Company) {
+    return this._http.post(`${Api_Url}/Company`, card, {headers: this.getHeaders()});
+  }
+
   private getHeaders() {
     return new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
   }
