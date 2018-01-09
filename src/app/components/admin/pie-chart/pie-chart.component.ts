@@ -65,7 +65,8 @@ export class PieChartComponent implements OnInit {
               'rgba(255, 159, 64, 1)'
             ],
             legend: {
-              display: false
+              display: false,
+              position: 'right'
             },
             segmentShowStroke: true,
             segmentStrokeColor: '#fff',
@@ -75,6 +76,17 @@ export class PieChartComponent implements OnInit {
             maintainAspectRatio: true,
             }]
           },
+          options: {
+            legend: {
+              display: false
+            },
+            segmentShowStroke: true,
+            segmentStrokeColor: '#fff',
+            segmentStrokeWidth: 2,
+            percentageInnerCutout: 50,
+            responsive: true,
+            maintainAspectRatio: true,
+          }
         });
       });
   }
