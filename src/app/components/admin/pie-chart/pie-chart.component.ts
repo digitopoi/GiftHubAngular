@@ -64,6 +64,9 @@ export class PieChartComponent implements OnInit {
               'rgba(153, 102, 255, 1)',
               'rgba(255, 159, 64, 1)'
             ],
+            legend: {
+              display: false
+            },
             segmentShowStroke: true,
             segmentStrokeColor: '#fff',
             segmentStrokeWidth: 2,
