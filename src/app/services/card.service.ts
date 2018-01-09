@@ -9,15 +9,15 @@ export class CardService {
 
   constructor(private _http: HttpClient) { }
 
-  getCard(){
+  getCard() {
     return this._http.get(`${Api_Url}/Card` , { headers: this.getHeaders()});
   }
 
-  createCard(card: Card){
+  createCard(card: Card) {
     return this._http.post(`${Api_Url}/Card`, card, {headers: this.getHeaders()});
   }
 
-  private getHeaders(){
+  private getHeaders() {
     return new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
   }
 
