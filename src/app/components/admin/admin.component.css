@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    width: auto;
+}
+
+.company {
+    width: 25%;
+}
+
+.chart {
+    width: 75%;
+}

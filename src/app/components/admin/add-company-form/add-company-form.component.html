@@ -1,0 +1,9 @@
+<h3>Add a company:</h3>
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" [formGroup]="companyForm">
+  <div>
+    <mat-form-field>
+      <input matInput placeholder="Company Name" formControlName="CompanyName" type="CompanyName" required/>
+    </mat-form-field>
+  </div>
+  <button mat-raised-button class="nav-btn" color="primary" type="submit">Add</button>
+</form>
