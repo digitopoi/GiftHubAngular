@@ -1,0 +1,12 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+$custom-typography: mat-typography-config(
+  $font-family: 'Lato, sans-serif',
+  $headline: mat-typography-level(32px, 48px, 700),
+  $body-1: mat-typography-level(16px, 24px, 500)
+);
+
+@include mat-base-typography($custom-typography);
+@include mat-checkbox-typography($custom-typography);
+@include angular-material-typography($custom-typography);

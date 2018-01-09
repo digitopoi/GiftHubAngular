@@ -14,7 +14,7 @@ const Api_Url = 'http://localhost:50203';
 
 @Injectable()
 export class AuthService {
-  userInfo: Token;
+  userInfo = new Subject<{}>();
   isLoggedIn = new Subject<boolean>();
 
   constructor(private _http: HttpClient, private _router: Router) { }
@@ -27,12 +27,14 @@ export class AuthService {
   login(loginInfo){
     const str = `grant_type=password&username=${encodeURI(loginInfo.email)}&password=${encodeURI(loginInfo.password)}`;
 
-    return this._http.post(`${Api_Url}/token`, str).subscribe( (token: Token) => {
-      this.userInfo = token;
+    return this._http.post(`${Api_Url}/Token`, str).subscribe((token: Token) => {
       localStorage.setItem('id_token', token.access_token);
-      this.isLoggedIn.next(true);
-      this._router.navigate(['/card']);
-  });
+      this.userInfo.next({
+        isloggedin: true,
+        user: token.userName
+      });
+      this._router.navigate(['/user']);
+    });
 
   }
 

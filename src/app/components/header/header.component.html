@@ -1,7 +1,13 @@
 <mat-toolbar color="primary">
-  <span> <i class="fas fa-gift"></i>GiftHub</span>
+  <span class="title"> <i id="giftbox" class="fas fa-gift"></i> GiftHub</span>
   <span class="example-fill-remaining-space"></span>
-  <button mat-raised-button class="nav-btn" routerLink="/register" >Register</button>
-  <button mat-raised-button class="nav-btn" routerLink="/login" >Login</button>
-  <button mat-raised-button class="nav-btn" routerLink="/logout" >Logout</button>
+  <div *ngIf="isLoggedIn; else auth">
+    <span>Welcome {{username}}</span>
+    <button mat-raised-button class="nav-btn" color="accent" (click)="onLoggout()">Logout</button>
+  </div>
+  <ng-template #auth>
+    <button mat-raised-button class="nav-btn" color="accent" routerLink="/register" >Register</button>
+    <button mat-raised-button class="nav-btn" color="accent" routerLink="/login" >Login</button>
+    <!-- <button mat-raised-button class="nav-btn" routerLink="/logout" >Logout</button> -->
+  </ng-template>
 </mat-toolbar>
