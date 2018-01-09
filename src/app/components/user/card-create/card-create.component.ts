@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./card-create.component.css']
 })
 export class CardCreateComponent implements OnInit {
+  
+  minDate = new Date();
 
   cardForm: FormGroup;
 
