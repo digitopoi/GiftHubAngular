@@ -21,7 +21,9 @@
 
     <div>
       <mat-form-field>
-        <input matInput placeholder="Expiration" formControlName="ExpirationDate" type="ExpirationDate" />
+        <input matInput [matDatepicker]="picker" placeholder="Expiration" formControlName="ExpirationDate" type="ExpirationDate">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
     </div>
 
