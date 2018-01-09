@@ -33,7 +33,7 @@ export class AuthService {
         isloggedin: true,
         user: token.userName
       });
-      this._router.navigate(['/card']);
+      this._router.navigate(['/user']);
     });
 
   }
