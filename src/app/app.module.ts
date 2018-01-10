@@ -15,6 +15,9 @@ import { MatToolbarModule,
        } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { TokenInterceptor } from './interceptors/token.interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -32,23 +35,26 @@ import { CardService } from './services/card.service';
 import { AuthGuard } from './guards/auth.guard';
 import { CompanyService } from './services/company.service';
 import { UserComponent } from './components/user/user.component';
+import { AdminGuard } from './guards/admin.guard';
+import {MatSelectModule} from '@angular/material/select';
+
 
 const routes = [
   { path: 'register', component: RegistrationComponent },
   { path: 'login', component: LoginComponent },
   { path: 'logout', component: LogoutComponent },
-  { path: 'admin', component: AdminComponent },
+  { path: 'admin',  canActivate: [AdminGuard], component: AdminComponent },
   { path: 'user', canActivate: [AuthGuard], component: UserComponent },
+  // { path: 'card', canActivate: [AuthGuard], component: },
 
-
-  { path: 'card', canActivate: [AuthGuard], children: [
-        { path: '', component: CardIndexComponent },
-        { path: 'create', component: CardCreateComponent }
-  ]
-  },
+  // { path: 'card', canActivate: [AuthGuard], children: [
+  //       { path: '', component: CardIndexComponent },
+  //       { path: 'create', component: CardCreateComponent }
+  // ]
+  // },
 
   { path: '**', component: RegistrationComponent }
-]
+];
 
 
 @NgModule({
@@ -63,8 +69,7 @@ const routes = [
     AdminComponent,
     PieChartComponent,
     AddCompanyFormComponent,
-    UserComponent,
-    
+    UserComponent
   ],
   imports: [
     BrowserModule,
@@ -80,13 +85,18 @@ const routes = [
     MatTableModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatPaginatorModule    
+    MatPaginatorModule
+    MatSelectModule,
+    MatPaginatorModule
   ],
   providers: [
     AuthService,
     CardService,
     CompanyService,
-    AuthGuard
+    AuthGuard,
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    AdminGuard,
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })
