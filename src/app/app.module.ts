@@ -32,6 +32,8 @@ import { CardService } from './services/card.service';
 import { AuthGuard } from './guards/auth.guard';
 import { CompanyService } from './services/company.service';
 import { UserComponent } from './components/user/user.component';
+import {MatSelectModule} from '@angular/material/select';
+
 
 const routes = [
   { path: 'register', component: RegistrationComponent },
@@ -63,8 +65,7 @@ const routes = [
     AdminComponent,
     PieChartComponent,
     AddCompanyFormComponent,
-    UserComponent,
-    
+    UserComponent    
   ],
   imports: [
     BrowserModule,
@@ -80,7 +81,8 @@ const routes = [
     MatTableModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatPaginatorModule    
+    MatSelectModule,
+    MatPaginatorModule 
   ],
   providers: [
     AuthService,

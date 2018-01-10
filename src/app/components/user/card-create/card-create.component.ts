@@ -3,6 +3,9 @@ import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { Card } from '../../../models/card';
 import { CardService } from '../../../services/card.service';
 import { Router } from '@angular/router';
+import {MatSelectModule} from '@angular/material/select';
+import { MatMenu } from '@angular/material/menu/typings/menu-directive';
+import { FormArray } from '@angular/forms/src/model';
 
 @Component({
   selector: 'app-card-create',
@@ -10,7 +13,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./card-create.component.css']
 })
 export class CardCreateComponent implements OnInit {
-  
+  cardCompanies;
+
   minDate = new Date();
 
   cardForm: FormGroup;
@@ -20,6 +24,10 @@ export class CardCreateComponent implements OnInit {
   }
 
   ngOnInit() {
+    this._cardService.GetCompaniesDropdown().subscribe(companies =>{
+      console.log(companies)
+      this.cardCompanies = companies
+    })
   }
 
   createForm() {
@@ -31,7 +39,6 @@ export class CardCreateComponent implements OnInit {
       AccessNumber: new FormControl
 
     });
-
   }
 
   onSubmit() {
