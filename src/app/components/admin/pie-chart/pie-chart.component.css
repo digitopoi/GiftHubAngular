@@ -1,4 +1,4 @@
-.chart-header {
-    align-content: center;
-
+#canvas[_ngcontent-c6] {
+    float: right;
+    border: 1px solid black;
 }

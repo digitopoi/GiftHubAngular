@@ -23,11 +23,8 @@ export class PieChartComponent implements OnInit {
     this._companyService.getCompanies()
       .subscribe((company: Company[]) => {
         this.company = company;
-        console.log('Response object:', this.company);
         this.companyNames = this.company.map(a => a.CompanyName);
-        console.log('Company Names:', this.companyNames);
         this.companyAmounts = this.company.map(a => a.CompanyAmount);
-        console.log('Company Amounts:', this.companyAmounts);
         this.dataSource = new CompanyDataSource(company);
 
         //  animate? https://codepen.io/balix/pen/XXwBpW
@@ -64,21 +61,22 @@ export class PieChartComponent implements OnInit {
               'rgba(153, 102, 255, 1)',
               'rgba(255, 159, 64, 1)'
             ],
-            legend: {
-              display: false,
-              position: 'right'
-            },
-            segmentShowStroke: true,
-            segmentStrokeColor: '#fff',
-            segmentStrokeWidth: 2,
-            percentageInnerCutout: 50,
-            responsive: true,
-            maintainAspectRatio: true,
             }]
           },
           options: {
             legend: {
-              display: false
+              position: 'bottom'
+              // display: false
+            },
+            tooltips: {
+              enabled: true,
+              callbacks: {
+                  label: function(tooltipItem, data) {
+                    const amount = '$' + data.datasets[0].data[tooltipItem.index];
+                    const companyName = data.labels[tooltipItem.index];
+                    return companyName + ': ' + amount;
+                  },
+              }
             },
             segmentShowStroke: true,
             segmentStrokeColor: '#fff',
