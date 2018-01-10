@@ -21,4 +21,8 @@ export class CardService {
     return new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
   }
 
+  GetCompaniesDropdown(){
+    return this._http.get(`${Api_Url}/CompanyNames`,{headers: this.getHeaders()})
+  }
+
 }
