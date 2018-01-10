@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator, MatTableDataSource } from '@angular/material';
 import { CardService } from '../../../services/card.service';
 import { Card } from '../../../models/Card';
 import { DataSource } from '@angular/cdk/collections';
@@ -14,28 +15,23 @@ export class CardIndexComponent implements OnInit {
 
   card: Card[];
   columnNames = ['CompanyName', 'Amount', 'DonationUtc'];
-  dataSource: CardDataSource | null;
+  dataSource = new MatTableDataSource();
+  
 
   constructor(private _cardService: CardService) { }
 
   ngOnInit() {
     this._cardService.getCard().subscribe((card: Card[]) => {
       this.card = card;
-      this.dataSource = new CardDataSource(card);
+      this.dataSource.data = card;
     });
   }
 
-}
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
-export class CardDataSource extends DataSource<any> {
-
-  constructor(private cardData: Card[]) {
-    super();
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
   }
 
-  connect(): Observable<Card[]> {
-    return Observable.of(this.cardData);
-  }
-
-  disconnect() { }
 }
+
