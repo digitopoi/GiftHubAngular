@@ -10,11 +10,11 @@ export class CardService {
   constructor(private _http: HttpClient) { }
 
   getCard() {
-    return this._http.get(`${Api_Url}/Card` , { headers: this.getHeaders()});
+    return this._http.get(`${Api_Url}/Card`);
   }
 
   createCard(card: Card) {
-    return this._http.post(`${Api_Url}/Card`, card, {headers: this.getHeaders()});
+    return this._http.post(`${Api_Url}/Card`, card);
   }
 
   private getHeaders() {
