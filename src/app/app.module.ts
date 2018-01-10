@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDatepickerModule } from '@angular/material';
 import { MatNativeDateModule } from '@angular/material';
+import { MatPaginatorModule } from '@angular/material';
 
 import { MatToolbarModule,
          MatButtonModule,
@@ -63,6 +64,7 @@ const routes = [
     PieChartComponent,
     AddCompanyFormComponent,
     UserComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -77,7 +79,8 @@ const routes = [
     MatInputModule,
     MatTableModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatPaginatorModule    
   ],
   providers: [
     AuthService,

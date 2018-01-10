@@ -9,12 +9,14 @@
     box-shadow: 1px 5px 5px 1px #888888;
     padding-left: 10px;
     padding-bottom: 10px;
+    padding-right: 10px;
 }
 
 .list {
-    width: 50%;   
-    
+    width: 60%;  
 }
+
+
 
 .example-fill-remaining-space {
     flex: 1 1 auto;

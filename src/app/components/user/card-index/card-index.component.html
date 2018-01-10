@@ -36,5 +36,9 @@
       </mat-cell>
     </ng-container>
   </mat-table>
+  <mat-paginator #paginator
+                 [pageSize]="5"
+                 [pageSizeOptions]="[5, 10, 20]">
+  </mat-paginator>
 </div>
-<a class="print" mat-raised-button color="primary" routerLink="/card/create">Create New</a>
+<a class="print" mat-raised-button color="primary" routerLink="/card">Print View</a>
