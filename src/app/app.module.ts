@@ -47,13 +47,6 @@ const routes = [
   { path: 'logout', component: LogoutComponent },
   { path: 'admin',  canActivate: [AdminGuard], component: AdminComponent },
   { path: 'user', canActivate: [AuthGuard], component: UserComponent },
-  // { path: 'card', canActivate: [AuthGuard], component: },
-
-  // { path: 'card', canActivate: [AuthGuard], children: [
-  //       { path: '', component: CardIndexComponent },
-  //       { path: 'create', component: CardCreateComponent }
-  // ]
-  // },
 
   { path: '**', component: RegistrationComponent }
 ];
