@@ -4,5 +4,11 @@
 }
 
 .totaldonation{
-    float: right;
+    /* float: right; */
+    display: inline-block;
 }
+
+ .myDonations:hover {
+    color: red;
+}
+
