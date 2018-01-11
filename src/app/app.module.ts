@@ -37,6 +37,7 @@ import { CompanyService } from './services/company.service';
 import { UserComponent } from './components/user/user.component';
 import { AdminGuard } from './guards/admin.guard';
 import {MatSelectModule} from '@angular/material/select';
+import{StripeFormComponent} from './components/user/stripe/stripe-form.component';
 
 
 const routes = [
@@ -69,7 +70,8 @@ const routes = [
     AdminComponent,
     PieChartComponent,
     AddCompanyFormComponent,
-    UserComponent
+    UserComponent,
+    StripeFormComponent
   ],
   imports: [
     BrowserModule,
