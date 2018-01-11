@@ -37,6 +37,7 @@ import { CompanyService } from './services/company.service';
 import { UserComponent } from './components/user/user.component';
 import { AdminGuard } from './guards/admin.guard';
 import {MatSelectModule} from '@angular/material/select';
+import { TotalDonationsComponent } from './components/total-donations/total-donations.component';
 
 
 const routes = [
@@ -69,7 +70,8 @@ const routes = [
     AdminComponent,
     PieChartComponent,
     AddCompanyFormComponent,
-    UserComponent
+    UserComponent,
+    TotalDonationsComponent
   ],
   imports: [
     BrowserModule,
