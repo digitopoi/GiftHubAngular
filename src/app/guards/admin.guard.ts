@@ -13,7 +13,7 @@ export class AdminGuard implements CanActivate {
     constructor(private http: HttpClient, private router: Router) { }
 
     canActivate() {
-        return this.http.post(`${ApiUrl}`).map(isAdmin => {
+        return this.http.get(`${ApiUrl}`).map(isAdmin => {
             if (!isAdmin) {
                 this.router.navigate(['/user']);
                 return false;
