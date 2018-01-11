@@ -5,12 +5,14 @@
   <div>
     <div>
       <mat-form-field>
-        <input matInput placeholder="Company Name" formControlName="CompanyName" type="CompanyName" required/>
-      </mat-form-field>
+          <mat-select placeholder="Select Company"  [(ngModel)]="CompanyName" formControlName="CompanyName" type="CompanyName" required>
+               <mat-option *ngFor="let company of cardCompanies"   [value] = "company" >{{company}}</mat-option>                
+          </mat-select>         
+    </mat-form-field>
     </div>
     <div>
       <mat-form-field>
-        <input matInput placeholder="CardNumber" formControlName="CardNumber" type="CardNumber" required/>
+        <input matInput placeholder="Card Number" formControlName="CardNumber" type="CardNumber" required/>
       </mat-form-field>
     </div>
     <div>
@@ -21,7 +23,9 @@
 
     <div>
       <mat-form-field>
-        <input matInput placeholder="Expiration" formControlName="ExpirationDate" type="ExpirationDate" />
+        <input matInput [min]="minDate" [matDatepicker]="picker" placeholder="Expiration" formControlName="ExpirationDate" type="ExpirationDate">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
       </mat-form-field>
     </div>
 
@@ -31,5 +35,5 @@
       </mat-form-field>
     </div>
   </div>
-  <button mat-raised-button class="nav-btn" color="primary" type="submit">Make Donation</button>
+  <button mat-raised-button class="nav-btn" color="accent" type="submit">Make Donation</button>
 </form>
