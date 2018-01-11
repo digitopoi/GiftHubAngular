@@ -31,7 +31,17 @@ export class CardIndexComponent implements OnInit {
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
+    document.getElementById("replaced").addEventListener("mouseenter", () => {
+      document.getElementById("replaced").innerText = "No Refunds!!";
+      document.getElementById("replaced").style.color = "red";
+    })
+    document.getElementById("replaced").addEventListener("mouseleave", () => {
+      document.getElementById("replaced").innerText = "My Donations";
+      document.getElementById("replaced").style.color = "black";
+    })
   }
+
+
 
 }
 
