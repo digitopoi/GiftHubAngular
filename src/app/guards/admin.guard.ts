@@ -4,7 +4,7 @@ import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Rx';
 import { HttpClient } from '@angular/common/http';
 
-const ApiUrl = 'http://localhost:50203//api/Account/adminCheck';
+const ApiUrl = 'http://localhost:50203/api/Account/adminCheck';
 
 @Injectable()
 export class AdminGuard implements CanActivate {
