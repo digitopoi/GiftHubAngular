@@ -1,19 +1,37 @@
 .container {
     display: flex;
     flex-direction: row;
-    width: auto;    
+    width: auto;  
+   
 }
 
-.card {
-    width: 25%;
-    box-shadow: 3px 3px 5px 1px #888888;
+.containerDonate {
+    display: flex;
+    flex-direction: column;
+    width: auto;  
+    align-self: flex-start; 
+    box-shadow: 3px 3px 5px 1px #888888; 
     padding-left: 10px;
     padding-bottom: 10px;
-    padding-right: 10px;   
+    padding-right: 10px; 
 }
 
+.stripe{
+    border-top:1px solid black;
+}
+
+.containerList {
+    display: flex;
+    width: 80%
+      
+}
+
+
+
 .list {
-    width: 60%;  
+    margin-left: 3em;
+    width: 100%;
+    align-self: stretch;
 }
 
 .example-fill-remaining-space {
