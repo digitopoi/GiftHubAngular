@@ -85,7 +85,7 @@ const routes = [
     MatTableModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatPaginatorModule
+    MatPaginatorModule,
     MatSelectModule,
     MatPaginatorModule
   ],
