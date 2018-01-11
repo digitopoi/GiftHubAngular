@@ -64,6 +64,12 @@ export class PieChartComponent implements OnInit {
             }]
           },
           options: {
+            title: {
+              display: 'true',
+              position: 'top',
+              fontSize: 16,
+              text: 'Donations by Company'
+            },
             legend: {
               position: 'bottom'
               // display: false
