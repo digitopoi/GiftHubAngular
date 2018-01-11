@@ -13,6 +13,10 @@ export class CardService {
     return this._http.get(`${Api_Url}/Card`);
   }
 
+  getDonation() {
+    return this._http.get(`${Api_Url}/TotalDonations`);
+  }
+
   createCard(card: Card) {
     return this._http.post(`${Api_Url}/Card`, card);
   }
