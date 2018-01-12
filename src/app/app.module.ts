@@ -39,6 +39,8 @@ import { AdminGuard } from './guards/admin.guard';
 import {MatSelectModule} from '@angular/material/select';
 import { TotalDonationsComponent } from './components/total-donations/total-donations.component';
 import{StripeFormComponent} from './components/user/stripe/stripe-form.component';
+import { LandingComponent } from './components/landing/landing.component';
+import { ImageComponent } from './components/landing/image/image.component';
 
 
 const routes = [
@@ -47,6 +49,7 @@ const routes = [
   { path: 'logout', component: LogoutComponent },
   { path: 'admin',  canActivate: [AdminGuard], component: AdminComponent },
   { path: 'user', canActivate: [AuthGuard], component: UserComponent },
+  { path: 'home', component: LandingComponent },
 
   { path: '**', component: RegistrationComponent }
 ];
@@ -66,7 +69,9 @@ const routes = [
     AddCompanyFormComponent,
     UserComponent,
     TotalDonationsComponent,
-    StripeFormComponent
+    StripeFormComponent,
+    LandingComponent,
+    ImageComponent
   ],
   imports: [
     BrowserModule,
