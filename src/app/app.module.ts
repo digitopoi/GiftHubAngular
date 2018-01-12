@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatDatepickerModule } from '@angular/material';
 import { MatNativeDateModule } from '@angular/material';
 import { MatPaginatorModule } from '@angular/material';
+import { MatSortModule } from '@angular/material';
 
 import { MatToolbarModule,
          MatButtonModule,
@@ -89,7 +90,8 @@ const routes = [
     MatNativeDateModule,
     MatPaginatorModule,
     MatSelectModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [
     AuthService,
