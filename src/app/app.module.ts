@@ -51,7 +51,7 @@ const routes = [
   { path: 'user', canActivate: [AuthGuard], component: UserComponent },
   { path: 'home', component: LandingComponent },
 
-  { path: '**', component: RegistrationComponent }
+  { path: '**', component: LandingComponent }
 ];
 
 
