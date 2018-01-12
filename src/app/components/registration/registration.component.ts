@@ -23,6 +23,7 @@ export class RegistrationComponent implements OnInit {
   createForm() {
     this._registration = this._form.group({
       email: new FormControl,
+      name: new FormControl,
       password: new FormControl,
       confirmPassword: new FormControl
     });
