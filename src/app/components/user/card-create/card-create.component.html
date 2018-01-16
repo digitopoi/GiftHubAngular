@@ -5,10 +5,10 @@
   <div>
     <div>
       <mat-form-field>
-          <mat-select placeholder="Select Company"  [(ngModel)]="CompanyName" formControlName="CompanyName" type="CompanyName" required>
-               <mat-option *ngFor="let company of cardCompanies"   [value] = "company" >{{company}}</mat-option>                
-          </mat-select>         
-    </mat-form-field>
+        <mat-select placeholder="Select Company" [(ngModel)]="CompanyName" formControlName="CompanyName" type="CompanyName" required>
+          <mat-option *ngFor="let company of cardCompanies" [value]="company">{{company}}</mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
     <div>
       <mat-form-field>
@@ -18,9 +18,10 @@
 
     <div>
       <mat-form-field>
-        <input matInput placeholder="Amount (dd.cc)" formControlName="Amount" type="Amount" required/>        
+        <input matInput placeholder="Amount (dd.cc)" formControlName="Amount" type="Amount" required />
         <span matPrefix>$&nbsp;</span>
       </mat-form-field>
+    </div>
 
     <div class="questions">
       <mat-checkbox class="access" [(ngModel)]="hasAccessNumber" [ngModelOptions]="{standalone: true}">Access number?</mat-checkbox>
@@ -39,6 +40,6 @@
         </mat-form-field>
       </div>
     </div>
-
-  <button mat-raised-button class="nav-btn" color="accent" type="submit">Make Donation</button>
+</div>
+    <button mat-raised-button class="nav-btn" color="accent" type="submit">Make Donation</button>
 </form>
