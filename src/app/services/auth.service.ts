@@ -26,7 +26,8 @@ export class AuthService {
 
 
   login(loginInfo) {
-    const str = `grant_type=password&username=${encodeURI(loginInfo.email)}&password=${encodeURI(loginInfo.password)}`;
+    console.log(loginInfo)
+    const str = `grant_type=password&username=${encodeURI(loginInfo.username)}&password=${encodeURI(loginInfo.password)}`;
 
     return this._http.post(`${Api_Url}/Token`, str).subscribe((token: Token) => {
       localStorage.setItem('id_token', token.access_token);

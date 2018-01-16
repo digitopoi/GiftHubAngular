@@ -26,8 +26,7 @@ export class HeaderComponent implements OnInit {
     if (localStorage.getItem('id_token')) {
       this.isLoggedIn = true;
       this.name = localStorage.getItem('user');
-    }
-    
+    } 
   }
 
   onLoggout() {
