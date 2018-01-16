@@ -15,25 +15,31 @@
         <input matInput placeholder="Card Number" formControlName="CardNumber" type="CardNumber" required/>
       </mat-form-field>
     </div>
-    <div>
-      <mat-form-field>
-        <input matInput placeholder="Access Number" formControlName="AccessNumber" type="AccessNumber" />
-      </mat-form-field>
-    </div>
 
     <div>
-      <mat-form-field>
-        <input matInput [min]="minDate" [matDatepicker]="picker" placeholder="Expiration" formControlName="ExpirationDate" type="ExpirationDate">
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
-      </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Amount" formControlName="Amount" type="Amount" required/>
+        </mat-form-field>
+      </div>
     </div>
 
-    <div>
-      <mat-form-field>
-        <input matInput placeholder="Amount" formControlName="Amount" type="Amount" required/>
-      </mat-form-field>
+    <div class="questions">
+      <mat-checkbox class="access" [(ngModel)]="hasAccessNumber" [ngModelOptions]="{standalone: true}">Access number?</mat-checkbox>
+      <div *ngIf="hasAccessNumber">
+        <mat-form-field>
+          <input matInput placeholder="Access Number" formControlName="AccessNumber" type="AccessNumber" />
+        </mat-form-field>
+      </div>
+
+      <mat-checkbox class="expiration" [(ngModel)]="hasExpiration" [ngModelOptions]="{standalone: true}">Expiration Date?</mat-checkbox>
+      <div *ngIf="hasExpiration">
+        <mat-form-field>
+          <input matInput [min]="minDate" [matDatepicker]="picker" placeholder="Expiration" formControlName="ExpirationDate" type="ExpirationDate">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+        </mat-form-field>
+      </div>
     </div>
-  </div>
+
   <button mat-raised-button class="nav-btn" color="accent" type="submit">Make Donation</button>
 </form>

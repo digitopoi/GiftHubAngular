@@ -16,6 +16,9 @@ import { MatSnackBar, MatSnackBarRef, SimpleSnackBar } from '@angular/material';
 export class CardCreateComponent implements OnInit {
   cardCompanies;
 
+  hasAccessNumber = false;
+  hasExpiration = false;
+
   minDate = new Date();
 
   cardForm: FormGroup;

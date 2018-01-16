@@ -8,9 +8,9 @@ import { MatDatepickerModule } from '@angular/material';
 import { MatNativeDateModule } from '@angular/material';
 import { MatPaginatorModule } from '@angular/material';
 import { MatSortModule } from '@angular/material';
-import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import { MatToolbarModule,
+         MatCheckboxModule,
          MatButtonModule,
          MatFormFieldModule,
          MatInputModule,
