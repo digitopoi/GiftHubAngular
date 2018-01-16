@@ -23,6 +23,7 @@ export class RegistrationComponent implements OnInit {
   createForm() {
     this._registration = this._form.group({
       email: new FormControl,
+      username: new FormControl,
       password: new FormControl,
       confirmPassword: new FormControl
     });
@@ -33,8 +34,10 @@ export class RegistrationComponent implements OnInit {
     console.log(this._registration.value);
     this._authService
       .register(this._registration.value)
-      .subscribe( () => this._authService.login(this._registration.value));     
-      }
+      .subscribe( () => {
+        this._authService.login(this._registration.value)
+      })  
+    }
   }  
 
 
