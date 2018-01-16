@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
 
   createForm(){
     this._loginForm = this._form.group({
-      email: new FormControl,
+      username: new FormControl,
       password: new FormControl
     });
   }
