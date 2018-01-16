@@ -1,33 +1,26 @@
 <div class="row">
-  <h1 class>My Donations<app-total-donations class="totaldonations"></app-total-donations></h1>
+  <h1><span id="replaced">My Donations</span></h1><app-total-donations class="totaldonations"></app-total-donations>
 </div>
 
 <hr>
 
 <div>
-  <mat-table #table [dataSource]="dataSource">
+  <mat-table #table [dataSource]="dataSource" matSort>
     <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
     <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
 
-    <ng-container matColumnDef="details">
-      <mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
-      <mat-cell *matCellDef="let card">
-          <i class="material-icons">library_books</i>
-      </mat-cell>
-    </ng-container>
-
     <ng-container matColumnDef="CompanyName">
-      <mat-header-cell *matHeaderCellDef> Gift Card </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Gift Card </mat-header-cell>
       <mat-cell *matCellDef="let card"> {{card.CompanyName}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="Amount">
-      <mat-header-cell *matHeaderCellDef> Amount </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Amount </mat-header-cell>
       <mat-cell *matCellDef="let card"> {{card.Amount | currency }} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="DonationUtc">
-      <mat-header-cell *matHeaderCellDef> Date of Donation </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Date of Donation </mat-header-cell>
       <mat-cell *matCellDef="let card"> {{card.DonationUtc | date:'fullDate'}} </mat-cell>
     </ng-container>
 
