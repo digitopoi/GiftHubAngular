@@ -1,0 +1,8 @@
+.footer {
+    display: flex;
+    flex-direction: row;
+}
+
+.example-fill-remaining-space {
+    flex: 1 1 auto;
+}

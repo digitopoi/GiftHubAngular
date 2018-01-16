@@ -1,0 +1,16 @@
+.info {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    font-size: 2em;
+}
+
+.about {
+    display: flex;
+    flex-direction: row;   
+}
+
+.container {
+    margin-top: 2em;
+}

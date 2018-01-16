@@ -17,11 +17,10 @@
     </div>
 
     <div>
-        <mat-form-field>
-          <input matInput placeholder="Amount" formControlName="Amount" type="Amount" required/>
-        </mat-form-field>
-      </div>
-    </div>
+      <mat-form-field>
+        <input matInput placeholder="Amount (dd.cc)" formControlName="Amount" type="Amount" required/>        
+        <span matPrefix>$&nbsp;</span>
+      </mat-form-field>
 
     <div class="questions">
       <mat-checkbox class="access" [(ngModel)]="hasAccessNumber" [ngModelOptions]="{standalone: true}">Access number?</mat-checkbox>

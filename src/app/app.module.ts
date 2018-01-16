@@ -45,7 +45,9 @@ import { TotalDonationsComponent } from './components/total-donations/total-dona
 import {StripeFormComponent} from './components/user/stripe/stripe-form.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { ImageComponent } from './components/landing/image/image.component';
+import { FooterComponent } from './components/footer/footer.component';
 import { UsersService } from './services/users.service';
+
 
 
 const routes = [
@@ -78,7 +80,8 @@ const routes = [
     TotalDonationsComponent,
     StripeFormComponent,
     LandingComponent,
-    ImageComponent
+    ImageComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
