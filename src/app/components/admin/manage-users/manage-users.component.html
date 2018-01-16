@@ -1,0 +1,23 @@
+<h1>Users Dashboard</h1>
+
+<button mat-raised-button class="nav-btn" color="accent" routerLink="/admin">Back</button>
+
+<mat-table #usersTable [dataSource]="usersDataSource">
+  <mat-header-row *matHeaderRowDef="usersColumnNames"></mat-header-row>
+  <mat-row *matRowDef="let row1; columns: usersColumnNames;"></mat-row>
+
+  <ng-container matColumnDef="userId">
+    <mat-header-cell *matHeaderCellDef> User Id </mat-header-cell>
+    <mat-cell *matCellDef="let user"> {{user.UserId}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="email">
+    <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+    <mat-cell *matCellDef="let user"> {{user.Email}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="username">
+    <mat-header-cell *matHeaderCellDef> User Name </mat-header-cell>
+    <mat-cell *matCellDef="let user"> {{user.UserName}} </mat-cell>
+  </ng-container>
+</mat-table>
