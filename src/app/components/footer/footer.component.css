@@ -1,6 +1,8 @@
-p {
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
-    text-align: center;
+.footer {
+    display: flex;
+    flex-direction: row;
+}
+
+.example-fill-remaining-space {
+    flex: 1 1 auto;
 }
