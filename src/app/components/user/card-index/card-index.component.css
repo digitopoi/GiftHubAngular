@@ -2,3 +2,13 @@
     float: right;
     margin-top: 1em;
 }
+
+.totaldonation{
+    /* float: right; */
+    display: inline-block;
+}
+
+ .myDonations:hover {
+    color: red;
+}
+

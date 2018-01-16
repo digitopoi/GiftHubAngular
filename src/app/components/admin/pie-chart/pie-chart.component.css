@@ -1,4 +1,4 @@
-#canvas[_ngcontent-c6] {
+#canvas {
     float: right;
-    border: 1px solid black;
+    box-shadow: 3px 3px 5px 1px #888888;
 }

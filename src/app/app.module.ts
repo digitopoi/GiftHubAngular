@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatDatepickerModule } from '@angular/material';
 import { MatNativeDateModule } from '@angular/material';
 import { MatPaginatorModule } from '@angular/material';
+import { MatSortModule } from '@angular/material';
 
 import { MatToolbarModule,
          MatButtonModule,
@@ -38,6 +39,10 @@ import { CompanyService } from './services/company.service';
 import { UserComponent } from './components/user/user.component';
 import { AdminGuard } from './guards/admin.guard';
 import {MatSelectModule} from '@angular/material/select';
+import { TotalDonationsComponent } from './components/total-donations/total-donations.component';
+import{StripeFormComponent} from './components/user/stripe/stripe-form.component';
+import { LandingComponent } from './components/landing/landing.component';
+import { ImageComponent } from './components/landing/image/image.component';
 
 
 const routes = [
@@ -46,15 +51,9 @@ const routes = [
   { path: 'logout', component: LogoutComponent },
   { path: 'admin',  canActivate: [AdminGuard], component: AdminComponent },
   { path: 'user', canActivate: [AuthGuard], component: UserComponent },
-  // { path: 'card', canActivate: [AuthGuard], component: },
+  { path: 'home', component: LandingComponent },
 
-  // { path: 'card', canActivate: [AuthGuard], children: [
-  //       { path: '', component: CardIndexComponent },
-  //       { path: 'create', component: CardCreateComponent }
-  // ]
-  // },
-
-  { path: '**', component: RegistrationComponent }
+  { path: '**', component: LandingComponent }
 ];
 
 
@@ -70,7 +69,11 @@ const routes = [
     AdminComponent,
     PieChartComponent,
     AddCompanyFormComponent,
-    UserComponent
+    UserComponent,
+    TotalDonationsComponent,
+    StripeFormComponent,
+    LandingComponent,
+    ImageComponent
   ],
   imports: [
     BrowserModule,
@@ -89,7 +92,8 @@ const routes = [
     MatNativeDateModule,
     MatPaginatorModule,
     MatSelectModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [
     AuthService,
