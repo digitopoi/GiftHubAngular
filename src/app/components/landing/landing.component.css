@@ -1,0 +1,11 @@
+.info {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    font-size: 4em;
+}
+
+p {
+    margin-top: 5px;
+}
