@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
+import { MatPaginator, MatTableDataSource } from '@angular/material';
 import { CardService } from '../../../services/card.service';
 import { Card } from '../../../models/Card';
 import { DataSource } from '@angular/cdk/collections';
@@ -28,11 +28,9 @@ export class CardIndexComponent implements OnInit {
   }
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
     document.getElementById("replaced").addEventListener("mouseenter", () => {
       document.getElementById("replaced").innerText = "No Refunds!!";
       document.getElementById("replaced").style.color = "red";
