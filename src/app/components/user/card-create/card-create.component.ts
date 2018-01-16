@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Card } from '../../../models/card';
 import { CardService } from '../../../services/card.service';
 import { Router } from '@angular/router';
@@ -47,8 +47,14 @@ export class CardCreateComponent implements OnInit {
 
   onSubmit() {
     this._cardService.createCard(this.cardForm.value).subscribe(data => {
+      let control: AbstractControl = null;
       this.openSnackBar('Giftcard added.', 'Thank you');
       this.cardForm.reset();
+      this.cardForm.markAsUntouched();
+      Object.keys(this.cardForm.controls).forEach((name) => {
+        control = this.cardForm.controls[name];
+        control.setErrors(null);
+      });
     });
   }
 
