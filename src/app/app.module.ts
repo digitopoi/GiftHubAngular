@@ -10,6 +10,7 @@ import { MatPaginatorModule } from '@angular/material';
 import { MatSortModule } from '@angular/material';
 
 import { MatToolbarModule,
+         MatCheckboxModule,
          MatButtonModule,
          MatFormFieldModule,
          MatInputModule,
@@ -41,7 +42,7 @@ import { UserComponent } from './components/user/user.component';
 import { AdminGuard } from './guards/admin.guard';
 import {MatSelectModule} from '@angular/material/select';
 import { TotalDonationsComponent } from './components/total-donations/total-donations.component';
-import{StripeFormComponent} from './components/user/stripe/stripe-form.component';
+import {StripeFormComponent} from './components/user/stripe/stripe-form.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { ImageComponent } from './components/landing/image/image.component';
 import { UsersService } from './services/users.service';
@@ -87,6 +88,7 @@ const routes = [
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    MatCheckboxModule,
     MatToolbarModule,
     MatButtonModule,
     MatFormFieldModule,
