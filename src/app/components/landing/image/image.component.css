@@ -1,8 +1,10 @@
 img {
     max-width: 85%;
+    position: relative;
     display: block;
     margin-right: auto;
     margin-left: auto;
+    margin-top: .5em;
     box-shadow: 3px 3px 5px 1px #888888; 
 }
 
@@ -15,6 +17,10 @@ img {
     font-family: 'Oleo Script', cursive;
     font-size: 8em;
     text-shadow: 3px 3px 4px #000000; 
+}
+
+.landing-image {
+    position: relative;
 }
 
 

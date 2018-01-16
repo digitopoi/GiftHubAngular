@@ -3,9 +3,14 @@
     margin-right: auto;
     margin-left: auto;
     text-align: center;
-    font-size: 4em;
+    font-size: 2em;
 }
 
-p {
-    margin-top: 5px;
+.about {
+    display: flex;
+    flex-direction: row;   
+}
+
+.container {
+    margin-top: 2em;
 }
