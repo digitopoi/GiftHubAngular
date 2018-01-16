@@ -11,7 +11,8 @@ import { MatToolbarModule,
          MatButtonModule,
          MatFormFieldModule,
          MatInputModule,
-         MatTableModule
+         MatTableModule,
+         MatSnackBarModule
        } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -73,6 +74,7 @@ const routes = [
   ],
   imports: [
     BrowserModule,
+    MatSnackBarModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
