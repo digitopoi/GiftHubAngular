@@ -12,7 +12,6 @@ import 'rxjs/add/observable/of';
   styleUrls: ['./card-index.component.css']
 })
 export class CardIndexComponent implements OnInit {
-  @Input('changed') changed: boolean;
   card: Card[];
   columnNames = ['CompanyName', 'Amount', 'DonationUtc'];
   dataSource = new MatTableDataSource();
@@ -45,14 +44,13 @@ export class CardIndexComponent implements OnInit {
     })
   }
 
-  ngOnChanges() {
+  refreshTable() {
+    console.log('ngOnChanges fired in child!!');
     this._cardService.getCard().subscribe((card: Card[]) => {
       this.card = card;
       this.dataSource.data = card;
     });
   }
-
-
 
 }
 

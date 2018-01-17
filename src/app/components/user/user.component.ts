@@ -1,4 +1,5 @@
-import { ApplicationRef, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { CardIndexComponent } from './card-index/card-index.component';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-user',
@@ -6,17 +7,16 @@ import { ApplicationRef, ChangeDetectorRef, Component, OnInit } from '@angular/c
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  changed: boolean;
 
-  constructor(private _ref: ChangeDetectorRef, private _applicationRef: ApplicationRef) { }
+  @ViewChild(CardIndexComponent) cardIndex: CardIndexComponent;
+
+  constructor() { }
 
   ngOnInit() {
   }
 
   addedCard(cardAdded: boolean) {
-    this.changed = cardAdded;
-    this._applicationRef.tick();
-    this._ref.detectChanges();
+    this.cardIndex.refreshTable();
   }
 
 }
