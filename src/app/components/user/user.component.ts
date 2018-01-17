@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ApplicationRef, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-user',
@@ -6,10 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
+  changed: boolean;
 
-  constructor() { }
+  constructor(private _ref: ChangeDetectorRef, private _applicationRef: ApplicationRef) { }
 
   ngOnInit() {
+  }
+
+  addedCard(cardAdded: boolean) {
+    this.changed = cardAdded;
+    this._applicationRef.tick();
+    this._ref.detectChanges();
   }
 
 }

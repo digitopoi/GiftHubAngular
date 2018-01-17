@@ -12,11 +12,13 @@ import 'rxjs/add/observable/of';
   styleUrls: ['./card-index.component.css']
 })
 export class CardIndexComponent implements OnInit {
-
+  @Input('changed') changed: boolean;
   card: Card[];
   columnNames = ['CompanyName', 'Amount', 'DonationUtc'];
   dataSource = new MatTableDataSource();
-  
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+
   @Input('matSortStart')
   start: 'asc' | 'desc'
 
@@ -29,21 +31,25 @@ export class CardIndexComponent implements OnInit {
     });
   }
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
-  
-
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
-    document.getElementById("replaced").addEventListener("mouseenter", () => {
-      document.getElementById("replaced").innerText = "No Refunds!!";
-      document.getElementById("replaced").style.color = "red";
+
+    document.getElementById('replaced').addEventListener('mouseenter', () => {
+      document.getElementById('replaced').innerText = 'No Refunds!!';
+      document.getElementById('replaced').style.color = 'red';
     })
-    document.getElementById("replaced").addEventListener("mouseleave", () => {
-      document.getElementById("replaced").innerText = "My Donations";
-      document.getElementById("replaced").style.color = "black";
+    document.getElementById('replaced').addEventListener('mouseleave', () => {
+      document.getElementById('replaced').innerText = 'My Donations';
+      document.getElementById('replaced').style.color = 'black';
     })
+  }
+
+  ngOnChanges() {
+    this._cardService.getCard().subscribe((card: Card[]) => {
+      this.card = card;
+      this.dataSource.data = card;
+    });
   }
 
 
