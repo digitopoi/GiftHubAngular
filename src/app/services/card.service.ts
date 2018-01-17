@@ -21,6 +21,10 @@ export class CardService {
     return this._http.post(`${Api_Url}/Card`, card);
   }
 
+  getExpirations() {
+    return this._http.get(`${Api_Url}/Expirations`);
+  }
+
   private getHeaders() {
     return new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
   }
