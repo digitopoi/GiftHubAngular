@@ -1,6 +1,6 @@
 <div class="print-view">
 <div class="row">
-  <h1><span id="replaced">My Donations</span></h1><app-total-donations class="totaldonations"></app-total-donations>
+  <h1><span id="replaced">My Donations</span></h1>
 </div>
 
 <hr>
@@ -22,9 +22,10 @@
 
     <ng-container matColumnDef="DonationUtc">
       <mat-header-cell *matHeaderCellDef mat-sort-header (start)="desc"> Date of Donation </mat-header-cell>
-      <mat-cell *matCellDef="let card"> {{card.DonationUtc | date:'fullDate'}} </mat-cell>
+      <mat-cell *matCellDef="let card"> {{card.DonationUtc | date:'longDate'}} </mat-cell>
     </ng-container>
   </mat-table>
+  <app-total-donations class="totaldonations"></app-total-donations>
 </div>
 </div>
 
