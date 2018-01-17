@@ -24,6 +24,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 import { AppComponent } from './app.component';
+import { ExpirationsComponent } from './components/admin/expirations/expirations.component';
 import { HeaderComponent } from './components/header/header.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { LoginComponent } from './components/login/login.component';
@@ -66,6 +67,7 @@ const routes = [
 @NgModule({
   declarations: [
     ManageUsersComponent,
+    ExpirationsComponent,
     AppComponent,
     HeaderComponent,
     RegistrationComponent,
