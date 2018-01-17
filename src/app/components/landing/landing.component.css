@@ -8,9 +8,23 @@
 
 .about {
     display: flex;
-    flex-direction: row;   
+    flex-direction: row;
+    justify-content: center; 
+}
+
+.about p {
+    margin: 1em;
+    max-width: 35%;
+    font-size: 1.25em;
+    text-align: justify;
 }
 
 .container {
     margin-top: 2em;
 }
+
+#giftbox {
+    color: #bbdefb;
+    margin: 16px;
+    align-self: center;
+    }

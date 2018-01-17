@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { CardIndexComponent } from './card-index/card-index.component';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-user',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserComponent implements OnInit {
 
+  @ViewChild(CardIndexComponent) cardIndex: CardIndexComponent;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  addedCard(cardAdded: boolean) {
+    this.cardIndex.refreshTable();
   }
 
 }

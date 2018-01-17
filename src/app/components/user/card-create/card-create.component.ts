@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Card } from '../../../models/card';
 import { CardService } from '../../../services/card.service';
@@ -14,6 +14,8 @@ import { MatSnackBar, MatSnackBarRef, SimpleSnackBar } from '@angular/material';
   styleUrls: ['./card-create.component.css']
 })
 export class CardCreateComponent implements OnInit {
+  @Output() addedCard = new EventEmitter<boolean>();
+
   cardCompanies;
 
   hasAccessNumber = false;
@@ -51,6 +53,7 @@ export class CardCreateComponent implements OnInit {
   onSubmit() {
     this._cardService.createCard(this.cardForm.value).subscribe(data => {
       let control: AbstractControl = null;
+      this.addedCard.emit(true);
       this.openSnackBar('Giftcard added.', 'Thank you');
       this.cardForm.reset();
       this.cardForm.markAsUntouched();

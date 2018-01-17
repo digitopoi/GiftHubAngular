@@ -6,6 +6,7 @@ img {
     margin-left: auto;
     margin-top: .5em;
     box-shadow: 3px 3px 5px 1px #888888; 
+    cursor: pointer;
 }
 
 .top-left-text {
@@ -16,7 +17,8 @@ img {
     color: white;
     font-family: 'Oleo Script', cursive;
     font-size: 8em;
-    text-shadow: 3px 3px 4px #000000; 
+    text-shadow: 3px 3px 4px #000000;
+    cursor: pointer; 
 }
 
 .landing-image {

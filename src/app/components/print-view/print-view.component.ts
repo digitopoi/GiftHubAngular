@@ -1,21 +1,20 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
-import { MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
-import { CardService } from '../../../services/card.service';
-import { Card } from '../../../models/Card';
+import { MatTableDataSource, MatSort } from '@angular/material';
+import { CardService } from '../../services/card.service';
+import { Card } from '../../models/Card';
 import { DataSource } from '@angular/cdk/collections';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
 @Component({
-  selector: 'app-card-index',
-  templateUrl: './card-index.component.html',
-  styleUrls: ['./card-index.component.css']
+  selector: 'app-print-view',
+  templateUrl: './print-view.component.html',
+  styleUrls: ['./print-view.component.css']
 })
-export class CardIndexComponent implements OnInit {
+export class PrintViewComponent implements OnInit {
   card: Card[];
   columnNames = ['CompanyName', 'Amount', 'DonationUtc'];
   dataSource = new MatTableDataSource();
-  @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
   @Input('matSortStart')
@@ -31,7 +30,6 @@ export class CardIndexComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
 
     document.getElementById('replaced').addEventListener('mouseenter', () => {
@@ -53,4 +51,3 @@ export class CardIndexComponent implements OnInit {
   }
 
 }
-

@@ -1,6 +1,8 @@
 <div class="container">  
         <div class="containerDonate card">
-            <app-card-create class="card"></app-card-create>
+            <app-card-create 
+                  class="card"
+                  (addedCard)="addedCard($event)"></app-card-create>
             <hr>
             <app-stripe-create class="stripe" ></app-stripe-create>
         </div>
