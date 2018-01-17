@@ -1,6 +1,9 @@
 .footer {
     display: flex;
     flex-direction: row;
+    width: 100%;
+    position: absolute;
+    height: 35px;
 }
 
 .example-fill-remaining-space {
