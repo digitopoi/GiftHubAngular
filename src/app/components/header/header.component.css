@@ -10,6 +10,8 @@
     font-family: 'Oleo Script', cursive;
     font-size: 2.5em;
     color: #ffffff;
+    cursor: pointer;
+    outline: 0;
 }
 
 .welcome {

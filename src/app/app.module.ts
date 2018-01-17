@@ -1,3 +1,4 @@
+import { ManageUsersComponent } from './components/admin/manage-users/manage-users.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -9,6 +10,7 @@ import { MatPaginatorModule } from '@angular/material';
 import { MatSortModule } from '@angular/material';
 
 import { MatToolbarModule,
+         MatCheckboxModule,
          MatButtonModule,
          MatFormFieldModule,
          MatInputModule,
@@ -40,9 +42,12 @@ import { UserComponent } from './components/user/user.component';
 import { AdminGuard } from './guards/admin.guard';
 import {MatSelectModule} from '@angular/material/select';
 import { TotalDonationsComponent } from './components/total-donations/total-donations.component';
-import{StripeFormComponent} from './components/user/stripe/stripe-form.component';
+import {StripeFormComponent} from './components/user/stripe/stripe-form.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { ImageComponent } from './components/landing/image/image.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { UsersService } from './services/users.service';
+
 
 
 const routes = [
@@ -50,6 +55,7 @@ const routes = [
   { path: 'login', component: LoginComponent },
   { path: 'logout', component: LogoutComponent },
   { path: 'admin',  canActivate: [AdminGuard], component: AdminComponent },
+  { path: 'manage', canActivate: [AdminGuard], component: ManageUsersComponent },
   { path: 'user', canActivate: [AuthGuard], component: UserComponent },
   { path: 'home', component: LandingComponent },
 
@@ -59,6 +65,7 @@ const routes = [
 
 @NgModule({
   declarations: [
+    ManageUsersComponent,
     AppComponent,
     HeaderComponent,
     RegistrationComponent,
@@ -73,7 +80,8 @@ const routes = [
     TotalDonationsComponent,
     StripeFormComponent,
     LandingComponent,
-    ImageComponent
+    ImageComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -83,6 +91,7 @@ const routes = [
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    MatCheckboxModule,
     MatToolbarModule,
     MatButtonModule,
     MatFormFieldModule,
@@ -96,6 +105,7 @@ const routes = [
     MatSortModule
   ],
   providers: [
+    UsersService,
     AuthService,
     CardService,
     CompanyService,

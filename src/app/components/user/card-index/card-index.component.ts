@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
 import { CardService } from '../../../services/card.service';
 import { Card } from '../../../models/Card';
@@ -17,6 +17,8 @@ export class CardIndexComponent implements OnInit {
   columnNames = ['CompanyName', 'Amount', 'DonationUtc'];
   dataSource = new MatTableDataSource();
   
+  @Input('matSortStart')
+  start: 'asc' | 'desc'
 
   constructor(private _cardService: CardService) { }
 
@@ -29,6 +31,7 @@ export class CardIndexComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
+  
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
