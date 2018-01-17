@@ -47,6 +47,7 @@ import { LandingComponent } from './components/landing/landing.component';
 import { ImageComponent } from './components/landing/image/image.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { UsersService } from './services/users.service';
+import { PrintViewComponent } from './components/print-view/print-view.component';
 
 
 
@@ -58,6 +59,7 @@ const routes = [
   { path: 'manage', canActivate: [AdminGuard], component: ManageUsersComponent },
   { path: 'user', canActivate: [AuthGuard], component: UserComponent },
   { path: 'home', component: LandingComponent },
+  { path: 'print', component: PrintViewComponent },
 
   { path: '**', component: LandingComponent }
 ];
@@ -81,7 +83,8 @@ const routes = [
     StripeFormComponent,
     LandingComponent,
     ImageComponent,
-    FooterComponent
+    FooterComponent,
+    PrintViewComponent
   ],
   imports: [
     BrowserModule,

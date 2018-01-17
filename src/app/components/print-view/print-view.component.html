@@ -1,3 +1,4 @@
+<div class="print-view">
 <div class="row">
   <h1><span id="replaced">My Donations</span></h1><app-total-donations class="totaldonations"></app-total-donations>
 </div>
@@ -24,9 +25,6 @@
       <mat-cell *matCellDef="let card"> {{card.DonationUtc | date:'fullDate'}} </mat-cell>
     </ng-container>
   </mat-table>
-  <mat-paginator #paginator
-                 [pageSize]="5"
-                 [pageSizeOptions]="[5, 10, 20]">
-  </mat-paginator>
 </div>
-<a class="print" mat-raised-button color="accent" routerLink="/print">Print View</a>
+</div>
+
