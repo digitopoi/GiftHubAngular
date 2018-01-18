@@ -45,7 +45,6 @@ export class CardIndexComponent implements OnInit {
   }
 
   refreshTable() {
-    console.log('ngOnChanges fired in child!!');
     this._cardService.getCard().subscribe((card: Card[]) => {
       this.card = card;
       this.dataSource.data = card;
