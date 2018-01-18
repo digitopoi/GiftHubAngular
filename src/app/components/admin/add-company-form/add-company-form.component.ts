@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
-import { Company } from '../../../models/company';
 import { CompanyService } from '../../../services/company.service';
 import { Router } from '@angular/router';
 
