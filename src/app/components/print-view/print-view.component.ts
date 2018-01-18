@@ -50,4 +50,27 @@ export class PrintViewComponent implements OnInit {
     });
   }
 
+  print(): void {
+    let printContents, popupWin;
+    printContents = document.getElementById('print-view').innerHTML;
+    popupWin = window.open('', '_blank', 'top=0,left=0,height=80%,width=auto');
+    popupWin.document.open();
+    popupWin.document.write(`
+      <html>
+        <head>
+          <title>Print View</title>  
+          <style>
+          .something {
+            color: red;
+          }
+          </style>      
+        </head>
+    <body onload="window.print();window.close()">${printContents}
+          <p class="something">hey</p>
+    </body>
+      </html>`
+    );
+    popupWin.document.close();
+}
+
 }

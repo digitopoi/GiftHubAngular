@@ -1,4 +1,4 @@
-<div class="print-view">
+<div id="print-view">
 <div class="row">
   <h1>
     <span id="replaced">My Donations 
@@ -30,6 +30,7 @@
   </mat-table>
   <app-total-donations class="totaldonations"></app-total-donations>
   <hr>
+  <button mat-raised-button class="nav-btn" color="accent" (click)="print()">Print</button>
 </div>
 <div class="back">
 <button mat-raised-button class="nav-btn" color="accent" routerLink="/user">Back</button>
