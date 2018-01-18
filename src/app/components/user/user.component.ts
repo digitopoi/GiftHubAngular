@@ -1,3 +1,4 @@
+import { TotalDonationsComponent } from './../total-donations/total-donations.component';
 import { CardIndexComponent } from './card-index/card-index.component';
 import { Component, OnInit, ViewChild } from '@angular/core';
 
@@ -9,6 +10,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 export class UserComponent implements OnInit {
 
   @ViewChild(CardIndexComponent) cardIndex: CardIndexComponent;
+  @ViewChild(TotalDonationsComponent) total: TotalDonationsComponent;
 
   constructor() { }
 
@@ -17,6 +19,7 @@ export class UserComponent implements OnInit {
 
   addedCard(cardAdded: boolean) {
     this.cardIndex.refreshTable();
+    this.total.refreshTotal();
   }
 
 }
