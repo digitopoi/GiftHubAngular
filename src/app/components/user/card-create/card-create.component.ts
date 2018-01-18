@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Card } from '../../../models/card';
 import { CardService } from '../../../services/card.service';
 import { Router } from '@angular/router';
 import {MatSelectModule} from '@angular/material/select';
@@ -17,7 +18,6 @@ export class CardCreateComponent implements OnInit {
   @Output() addedCard = new EventEmitter<boolean>();
 
   cardCompanies;
-  CompanyName;
 
   hasAccessNumber = false;
   hasExpiration = false;
@@ -45,13 +45,9 @@ export class CardCreateComponent implements OnInit {
     this.cardForm = this._form.group({
       CompanyName: new FormControl,
       CardNumber: new FormControl,
-      Amount: new FormControl [
-        Validators.required,
-        Validators.min(.01),
-      ],
+      Amount: new FormControl,
       ExpirationDate: new FormControl,
       AccessNumber: new FormControl
-
     });
   }
 
