@@ -13,7 +13,7 @@ import 'rxjs/add/observable/of';
 })
 export class PrintViewComponent implements OnInit {
   card: Card[];
-  columnNames = ['CompanyName', 'Amount', 'DonationUtc'];
+  columnNames = ['DonationUtc', 'CompanyName', 'Amount'];
   dataSource = new MatTableDataSource();
   @ViewChild(MatSort) sort: MatSort;
 
