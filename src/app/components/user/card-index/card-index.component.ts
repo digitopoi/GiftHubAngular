@@ -1,3 +1,4 @@
+import { TotalDonationsComponent } from './../../total-donations/total-donations.component';
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
 import { CardService } from '../../../services/card.service';
@@ -17,6 +18,7 @@ export class CardIndexComponent implements OnInit {
   dataSource = new MatTableDataSource();
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(TotalDonationsComponent) total: TotalDonationsComponent;
 
   @Input('matSortStart')
   start: 'asc' | 'desc'
@@ -48,6 +50,7 @@ export class CardIndexComponent implements OnInit {
     this._cardService.getCard().subscribe((card: Card[]) => {
       this.card = card;
       this.dataSource.data = card;
+      this.total.refreshTotal();
     });
   }
 
