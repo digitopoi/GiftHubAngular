@@ -7,6 +7,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { MatMenu } from '@angular/material/menu/typings/menu-directive';
 import { FormArray } from '@angular/forms/src/model';
 import { MatSnackBar, MatSnackBarRef, SimpleSnackBar } from '@angular/material';
+import { Validators } from '@angular/forms/src/validators';
 
 @Component({
   selector: 'app-card-create',
@@ -32,7 +33,8 @@ export class CardCreateComponent implements OnInit {
     this.createForm();
   }
 
-  ngOnInit() {
+  ngOnInit()
+  {
     this._cardService.GetCompaniesDropdown().subscribe(companies => {
       console.log(companies);
       this.cardCompanies = companies;
@@ -43,7 +45,10 @@ export class CardCreateComponent implements OnInit {
     this.cardForm = this._form.group({
       CompanyName: new FormControl,
       CardNumber: new FormControl,
-      Amount: new FormControl,
+      Amount: new FormControl [
+        Validators.required,
+        Validators.min(.01),
+      ],
       ExpirationDate: new FormControl,
       AccessNumber: new FormControl
 
