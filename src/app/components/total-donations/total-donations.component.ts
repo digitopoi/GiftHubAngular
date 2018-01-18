@@ -24,6 +24,13 @@ export class TotalDonationsComponent implements OnInit {
       this.totalAmount = Number(amount);
     });
   }
+
+  refreshTotal() {
+    this._cardService.getDonation().subscribe((amount) => {
+      console.log(amount);
+      this.totalAmount = Number(amount);
+    });
+  }
 }
 
 export class CardDataSource extends DataSource<any> {
