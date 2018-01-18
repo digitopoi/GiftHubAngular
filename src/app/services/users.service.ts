@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-const ApiUrl = 'http://localhost:50203/';
+const ApiUrl = 'http://gifthubapi20180117092302.azurewebsites.net/';
 
 @Injectable()
 export class UsersService {
