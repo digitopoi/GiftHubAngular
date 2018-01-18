@@ -8,7 +8,7 @@ import { HttpHeaderResponse } from '@angular/common/http/src/response';
 import { Subject } from 'rxjs/Subject';
 
 
-const Api_Url = 'http://localhost:50203';
+const Api_Url = 'http://gifthubapi20180117092302.azurewebsites.net';
 
 
 

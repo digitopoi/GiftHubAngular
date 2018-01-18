@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Card } from '../models/Card';
 
-const Api_Url = 'http://localhost:50203/Api';
+const Api_Url = 'http://gifthubapi20180117092302.azurewebsites.net/Api';
 
 @Injectable()
 export class CardService {
@@ -19,6 +19,10 @@ export class CardService {
 
   createCard(card: Card) {
     return this._http.post(`${Api_Url}/Card`, card);
+  }
+
+  getExpirations() {
+    return this._http.get(`${Api_Url}/Expirations`);
   }
 
   private getHeaders() {

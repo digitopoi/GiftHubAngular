@@ -1,3 +1,7 @@
+.wrapper {
+    margin: 2em 2em;
+}
+
 .container {
     display: flex;
     flex-direction: row;
@@ -14,4 +18,8 @@
 
 .example-fill-remaining-space {
     flex: 1 1 auto;
+}
+
+.expirations {
+    width: 25%;
 }
