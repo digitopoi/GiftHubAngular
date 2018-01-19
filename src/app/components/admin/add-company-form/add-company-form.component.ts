@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl, AbstractControl } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl, AbstractControl, Validators } from '@angular/forms';
 import { CompanyService } from '../../../services/company.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -19,7 +19,7 @@ export class AddCompanyFormComponent {
 
   createForm() {
     this.companyForm = this._form.group({
-      CompanyName: new FormControl
+      CompanyName: new FormControl ('', Validators.required)
     });
   }
 

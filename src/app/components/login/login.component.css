@@ -1,9 +1,29 @@
-.login {
-    max-width: 20%;
+#login {
+    max-width: 35%;
     display: block;
     margin-right: auto;
     margin-left: auto; 
     box-shadow: 3px 3px 5px 1px #888888; 
     padding: 2em;
     margin-top: 2em;
+    float: right;
+    position: relative;
+    z-index: 10;
+    background-color: white;
+}
+
+.container {
+    margin-top: 2em;
+    width: 92em;
+    height: 70em;
+    position: relative;
+    max-width: 100%;
+}
+
+#image{
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position:absolute;
 }
