@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { HttpHeaderResponse } from '@angular/common/http/src/response';
 import { Subject } from 'rxjs/Subject';
+import { ToastrService } from 'ngx-toastr';
+import { ToastService } from './toast.service';
 
 
 const Api_Url = 'http://gifthubapi20180117092302.azurewebsites.net';
@@ -18,7 +20,7 @@ export class AuthService {
   isLoggedIn = new Subject<boolean>();
   isAdmin: boolean;
 
-  constructor(private _http: HttpClient, private _router: Router) { }
+  constructor(private _http: HttpClient, private _router: Router, private _toast: ToastService, public toast: ToastrService) { }
 
   register(regUserData: RegisterUser) {
     return this._http.post(`${Api_Url}/api/Account/Register`, regUserData);
@@ -26,7 +28,7 @@ export class AuthService {
 
 
   login(loginInfo) {
-    console.log(loginInfo)
+    console.log(loginInfo);
     const str = `grant_type=password&username=${encodeURI(loginInfo.username)}&password=${encodeURI(loginInfo.password)}`;
 
     return this._http.post(`${Api_Url}/Token`, str).subscribe((token: Token) => {
@@ -37,7 +39,8 @@ export class AuthService {
         user: token.userName
       });
       this._router.navigate(['/admin']);
-    });
+      this._toast.loginToast();
+    }, error => this._toast.handleError(error));
 
   }
 
