@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { AbstractControl } from '@angular/forms/src/model';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  private _loginForm: FormGroup;
+  public _loginForm: FormGroup;
 
   constructor(private _form: FormBuilder, private authService: AuthService) {
     this.createForm();
@@ -25,7 +26,14 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  onSubmit(){
+  onSubmit() {
     this.authService.login(this._loginForm.value);
+    let control: AbstractControl = null;
+    this._loginForm.reset();
+      this._loginForm.markAsUntouched();
+      Object.keys(this._loginForm.controls).forEach((name) => {
+        control = this._loginForm.controls[name];
+        control.setErrors(null);
+      });
   }
 }

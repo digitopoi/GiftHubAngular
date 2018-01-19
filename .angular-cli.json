@@ -21,6 +21,7 @@
       "styles": [
         "styles.css",
         "theme.scss",
+        "../node_modules/ngx-toastr/toastr.css",
         "typography.scss"
       ],
       "scripts": [],

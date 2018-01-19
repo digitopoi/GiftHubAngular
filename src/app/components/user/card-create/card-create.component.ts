@@ -1,12 +1,11 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { Card } from '../../../models/card';
 import { CardService } from '../../../services/card.service';
 import { Router } from '@angular/router';
 import {MatSelectModule} from '@angular/material/select';
 import { MatMenu } from '@angular/material/menu/typings/menu-directive';
 import { FormArray } from '@angular/forms/src/model';
-import { MatSnackBar, MatSnackBarRef, SimpleSnackBar } from '@angular/material';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-card-create',
@@ -17,6 +16,7 @@ export class CardCreateComponent implements OnInit {
   @Output() addedCard = new EventEmitter<boolean>();
 
   cardCompanies;
+  CompanyName;
 
   hasAccessNumber = false;
   hasExpiration = false;
@@ -28,7 +28,7 @@ export class CardCreateComponent implements OnInit {
   constructor(private _form: FormBuilder,
               private _cardService: CardService,
               private _router: Router,
-              private _snackBar: MatSnackBar) {
+              private _toast: ToastrService) {
     this.createForm();
   }
 
@@ -54,19 +54,16 @@ export class CardCreateComponent implements OnInit {
     this._cardService.createCard(this.cardForm.value).subscribe(data => {
       let control: AbstractControl = null;
       this.addedCard.emit(true);
-      this.openSnackBar('Giftcard added.', 'Thank you');
+      this._toast.success('Gift card added.', 'Thank you!', {
+        timeOut: 2500,
+        positionClass: 'toast-bottom-center',
+      });
       this.cardForm.reset();
       this.cardForm.markAsUntouched();
       Object.keys(this.cardForm.controls).forEach((name) => {
         control = this.cardForm.controls[name];
         control.setErrors(null);
       });
-    });
-  }
-
-  openSnackBar(message: string, dismiss: string): MatSnackBarRef<SimpleSnackBar> {
-    return this._snackBar.open(message, dismiss, {
-      duration: 2000,
     });
   }
 

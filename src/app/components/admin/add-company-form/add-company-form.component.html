@@ -1,5 +1,5 @@
 <h3>Add a company:</h3>
-<form #f="ngForm" (ngSubmit)="onSubmit(f)" [formGroup]="companyForm">
+<form #f="ngForm" (ngSubmit)="onSubmit()" [formGroup]="companyForm">
   <div>
     <mat-form-field>
       <input matInput placeholder="Company Name" formControlName="CompanyName" type="CompanyName" required/>
