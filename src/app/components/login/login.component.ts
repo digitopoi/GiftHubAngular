@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { AbstractControl } from '@angular/forms/src/model';
+import { Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -21,8 +22,8 @@ export class LoginComponent implements OnInit {
 
   createForm(){
     this._loginForm = this._form.group({
-      username: new FormControl,
-      password: new FormControl
+      username: new FormControl ('', Validators.required),
+      password: new FormControl ('', Validators.required)
     });
   }
 

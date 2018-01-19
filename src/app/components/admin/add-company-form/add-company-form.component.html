@@ -5,5 +5,5 @@
       <input matInput placeholder="Company Name" formControlName="CompanyName" type="CompanyName" required/>
     </mat-form-field>
   </div>
-  <button mat-raised-button class="nav-btn" color="primary" type="submit">Add</button>
+  <button mat-raised-button class="nav-btn" color="primary" type="submit"[disabled]=companyForm.invalid>Add</button>
 </form>
