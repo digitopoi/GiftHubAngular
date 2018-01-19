@@ -14,13 +14,13 @@ import { MatToolbarModule,
          MatButtonModule,
          MatFormFieldModule,
          MatInputModule,
-         MatTableModule,
-         MatSnackBarModule
+         MatTableModule
        } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
 
 
 import { AppComponent } from './app.component';
@@ -43,12 +43,12 @@ import { UserComponent } from './components/user/user.component';
 import { AdminGuard } from './guards/admin.guard';
 import {MatSelectModule} from '@angular/material/select';
 import { TotalDonationsComponent } from './components/total-donations/total-donations.component';
-import {StripeFormComponent} from './components/user/stripe/stripe-form.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { ImageComponent } from './components/landing/image/image.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { UsersService } from './services/users.service';
 import { PrintViewComponent } from './components/print-view/print-view.component';
+import { ToastService } from './services/toast.service';
 
 
 
@@ -82,7 +82,6 @@ const routes = [
     AddCompanyFormComponent,
     UserComponent,
     TotalDonationsComponent,
-    StripeFormComponent,
     LandingComponent,
     ImageComponent,
     FooterComponent,
@@ -90,9 +89,9 @@ const routes = [
   ],
   imports: [
     BrowserModule,
-    MatSnackBarModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
+    ToastrModule.forRoot(),
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
@@ -111,6 +110,7 @@ const routes = [
   ],
   providers: [
     UsersService,
+    ToastService,
     AuthService,
     CardService,
     CompanyService,
