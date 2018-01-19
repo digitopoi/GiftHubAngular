@@ -6,6 +6,10 @@
     font-size: 2em;
 }
 
+.info p {
+    margin-bottom: .25em;
+}
+
 .about {
     display: flex;
     flex-direction: row;
@@ -15,8 +19,9 @@
 .about p {
     margin: 1em;
     max-width: 35%;
-    font-size: 1.25em;
+    font-size: 1.1em;
     text-align: justify;
+    margin-bottom: 2em;
 }
 
 .container {

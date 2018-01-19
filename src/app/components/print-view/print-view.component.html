@@ -1,9 +1,8 @@
-<div class="print-view">
+<div id="print-view">
 <div class="row">
   <h1>
     <span id="replaced">My Donations 
     </span>
-    <button mat-raised-button class="nav-btn" color="accent" routerLink="/user">Back</button>
   </h1>
 </div>
 
@@ -14,6 +13,11 @@
     <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
     <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
 
+    <ng-container matColumnDef="DonationUtc">
+      <mat-header-cell *matHeaderCellDef mat-sort-header (start)="desc"> Date of Donation </mat-header-cell>
+      <mat-cell *matCellDef="let card"> {{card.DonationUtc | date:'longDate'}} </mat-cell>
+    </ng-container>
+    
     <ng-container matColumnDef="CompanyName">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Gift Card </mat-header-cell>
       <mat-cell *matCellDef="let card"> {{card.CompanyName}} </mat-cell>
@@ -23,13 +27,13 @@
       <mat-header-cell *matHeaderCellDef mat-sort-header> Amount </mat-header-cell>
       <mat-cell *matCellDef="let card"> {{card.Amount | currency }} </mat-cell>
     </ng-container>
-
-    <ng-container matColumnDef="DonationUtc">
-      <mat-header-cell *matHeaderCellDef mat-sort-header (start)="desc"> Date of Donation </mat-header-cell>
-      <mat-cell *matCellDef="let card"> {{card.DonationUtc | date:'longDate'}} </mat-cell>
-    </ng-container>
   </mat-table>
   <app-total-donations class="totaldonations"></app-total-donations>
+  <hr>
+  <button mat-raised-button class="nav-btn" color="accent" (click)="print()">Print</button>
+</div>
+<div class="back">
+<button mat-raised-button class="nav-btn" color="accent" routerLink="/user">Back</button>
 </div>
 </div>
 
