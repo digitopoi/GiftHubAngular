@@ -13,7 +13,7 @@ import 'rxjs/add/observable/of';
 })
 export class PrintViewComponent implements OnInit {
   card: Card[];
-  columnNames = ['CompanyName', 'Amount', 'DonationUtc'];
+  columnNames = ['DonationUtc', 'CompanyName', 'Amount'];
   dataSource = new MatTableDataSource();
   @ViewChild(MatSort) sort: MatSort;
 
@@ -49,5 +49,28 @@ export class PrintViewComponent implements OnInit {
       this.dataSource.data = card;
     });
   }
+
+  print(): void {
+    let printContents, popupWin;
+    printContents = document.getElementById('print-view').innerHTML;
+    popupWin = window.open('', '_blank', 'top=0,left=0,height=80%,width=auto');
+    popupWin.document.open();
+    popupWin.document.write(`
+      <html>
+        <head>
+          <title>Print View</title>  
+          <style>
+          .something {
+            color: red;
+          }
+          </style>      
+        </head>
+    <body onload="window.print();window.close()">${printContents}
+          <p class="something">hey</p>
+    </body>
+      </html>`
+    );
+    popupWin.document.close();
+}
 
 }

@@ -16,7 +16,7 @@
       </mat-form-field>
     </div>
   </div>
-  <button mat-raised-button class="nav-btn" color="accent" type="submit">Login</button>
+  <button mat-raised-button class="nav-btn" color="accent" type="submit" [disabled]="_loginForm.invalid">Login</button>
 </form>
 <br>
 <a routerLink="/register">Register as a new user</a>

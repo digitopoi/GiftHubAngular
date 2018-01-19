@@ -21,7 +21,7 @@
 
     <ng-container matColumnDef="DonationUtc">
       <mat-header-cell *matHeaderCellDef mat-sort-header (start)="desc"> Date of Donation </mat-header-cell>
-      <mat-cell *matCellDef="let card"> {{card.DonationUtc | date:'fullDate'}} </mat-cell>
+      <mat-cell *matCellDef="let card"> {{card.DonationUtc | date:'longDate'}} </mat-cell>
     </ng-container>
   </mat-table>
   <mat-paginator #paginator
