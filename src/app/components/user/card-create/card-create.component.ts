@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { CardService } from '../../../services/card.service';
 import { Router } from '@angular/router';
 import {MatSelectModule} from '@angular/material/select';
@@ -41,9 +41,9 @@ export class CardCreateComponent implements OnInit {
 
   createForm() {
     this.cardForm = this._form.group({
-      CompanyName: new FormControl,
-      CardNumber: new FormControl,
-      Amount: new FormControl,
+      CompanyName: new FormControl ('', Validators.required),
+      CardNumber: new FormControl ('', Validators.required),
+      Amount: new FormControl ('', Validators.required),
       ExpirationDate: new FormControl,
       AccessNumber: new FormControl
 
