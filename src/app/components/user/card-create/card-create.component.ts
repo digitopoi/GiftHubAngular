@@ -7,7 +7,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { MatMenu } from '@angular/material/menu/typings/menu-directive';
 import { FormArray } from '@angular/forms/src/model';
 import { MatSnackBar, MatSnackBarRef, SimpleSnackBar } from '@angular/material';
-import { Validators } from '@angular/forms/src/validators';
+import { Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-card-create',
@@ -43,9 +43,9 @@ export class CardCreateComponent implements OnInit {
 
   createForm() {
     this.cardForm = this._form.group({
-      CompanyName: new FormControl,
-      CardNumber: new FormControl,
-      Amount: new FormControl,
+      CompanyName: new FormControl('', Validators.required),
+      CardNumber: new FormControl('', Validators.required),
+      Amount: new FormControl('', Validators.required),
       ExpirationDate: new FormControl,
       AccessNumber: new FormControl
     });

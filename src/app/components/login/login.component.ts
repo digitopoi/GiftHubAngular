@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { MatSnackBar, MatSnackBarRef, SimpleSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-login',
@@ -20,11 +21,12 @@ export class LoginComponent implements OnInit {
 
   createForm(){
     this._loginForm = this._form.group({
-      username: new FormControl,
-      password: new FormControl
+      username: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required),
     });
   }
 
+  //validate
   onSubmit(){
     this.authService.login(this._loginForm.value);
   }

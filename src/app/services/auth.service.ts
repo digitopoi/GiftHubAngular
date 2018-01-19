@@ -37,7 +37,9 @@ export class AuthService {
         user: token.userName
       });
       this._router.navigate(['/admin']);
-    });
+    }),
+    error => {
+    };
 
   }
 

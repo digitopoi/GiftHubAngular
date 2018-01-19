@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -22,10 +22,10 @@ export class RegistrationComponent implements OnInit {
 
   createForm() {
     this._registration = this._form.group({
-      email: new FormControl,
-      username: new FormControl,
-      password: new FormControl,
-      confirmPassword: new FormControl
+      email: new FormControl('', Validators.required),
+      username: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required),
+      confirmPassword: new FormControl('', Validators.required)
     });
     
   }
