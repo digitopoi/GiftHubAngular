@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Company } from '../models/Company';
 
-const Api_Url = 'http://gifthubapi20180117092302.azurewebsites.net/Api';
+const Api_Url = 'https://gifthubapi20180117092302.azurewebsites.net/Api';
 
 @Injectable()
 export class CompanyService {

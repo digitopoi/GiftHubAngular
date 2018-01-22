@@ -4,7 +4,7 @@ import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Rx';
 import { HttpClient } from '@angular/common/http';
 
-const ApiUrl = 'http://gifthubapi20180117092302.azurewebsites.net/api/Account/adminCheck';
+const ApiUrl = 'https://gifthubapi20180117092302.azurewebsites.net/api/Account/adminCheck';
 
 @Injectable()
 export class AdminGuard implements CanActivate {

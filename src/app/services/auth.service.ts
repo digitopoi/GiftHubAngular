@@ -10,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 import { ToastService } from './toast.service';
 
 
-const Api_Url = 'http://gifthubapi20180117092302.azurewebsites.net';
+const Api_Url = 'https://gifthubapi20180117092302.azurewebsites.net';
 
 
 
