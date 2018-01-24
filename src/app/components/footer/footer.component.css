@@ -5,12 +5,12 @@
     margin-left: auto;
     margin-right: auto;
     height: 35px;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .footer-color {
-    height: 35px;
-    background-color: #e5f3ff;
+    height: 50px;
+    background-color: #00897b;
 }
 
 .example-fill-remaining-space {
