@@ -7,7 +7,7 @@ https://gifthubproject.herokuapp.com/
 GitHub is a website built to collect charitable donations through gift cards. People often throw or stash away gift cards with low, unusable balances believing that they will never get around to cashing in the $0.40 on their Chipotle card. GiftHub allows users to easily dispose of their low balance gift cards by and support a good cause in the process.
 
 ### Video Introduction:
-[![Alt text](https://img.youtube.com/vi/a5wgtxcv-Ek/0.jpg)](https://www.youtube.com/watch?v=a5wgtxcv-Ek)
+[![Alt text](https://img.youtube.com/vi/B5PbJQ0WhhY/0.jpg)](https://www.youtube.com/watch?v=B5PbJQ0WhhY)
 
 ## Frameworks and Libraries Used
 
